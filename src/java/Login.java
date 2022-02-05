@@ -1,5 +1,9 @@
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -43,12 +47,23 @@ public class Login implements Serializable {
     }
 
     //validate login
-    public String validateUsernamePassword() {
+    public String validateUsernamePassword() throws SQLException, ClassNotFoundException {
         boolean valid = LoginDao.validate(user, pwd);
         if (valid) {
-            HttpSession session = Session.getSession();
-            session.setAttribute("username", user);
-            return "index";
+              DBConnection dbcon = new DBConnection();
+            Connection con = dbcon.connMethod();
+            PreparedStatement ps = con.prepareStatement("select USERTYPE from USERTBL where USERNAME=?");
+            ps.setString(1, user);       
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            String userType =rs.getString(1);
+            //HttpSession session = Session.getSession();
+            //session.setAttribute("username", user);
+            if ("Admin".equals(userType)) {
+                return "HomePage";
+            } else {
+                return "index";
+            }
         } else {
             FacesContext.getCurrentInstance().addMessage(
                     null,
@@ -61,8 +76,8 @@ public class Login implements Serializable {
 
     //logout event, invalidate session
     public String logout() {
-        HttpSession session = Session.getSession();
-        session.invalidate();
+       // HttpSession session = Session.getSession();
+        //session.invalidate();
         return "LoginPage";
     }
 }

@@ -4,42 +4,90 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html" 
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap-theme.min.css" />
         <link rel="stylesheet" type="text/css" href="./bootstrap/css/meu.css" />
-
         <script src="./bootstrap/js/bootstrap.min.js"></script>
-        <title>Facelet Title</title>
+        <title>Register</title>
     </h:head>
     <h:body>
         <ui:include src="Header.xhtml" />
         <h:form >
-
             <fieldset style="width: 500px; margin:auto; padding: 20px; margin-top: 50px; border-bottom-color:red; ">
-
                 <div class="form-group" style=" display: flex;">
                     <label for="firstName" class="col-sm-3 control-label">First Name:</label>
                     <div class="col-sm-8">
-                        <h:inputText id="firstName" class="form-control" value="#{firstManagedBean.firstName}" a:placeholder="First name..." />
-
+                        <h:inputText id="firstName"  required="true" class="form-control" value="#{firstManagedBean.firstName}" a:placeholder="First name..." />
                     </div>
                 </div>
                 <div class="form-group" style="display: flex;">
                     <label for="lastName" class="col-sm-3 control-label">Last Name:</label>
                     <div class="col-sm-8">
-                        <h:inputText id="lastName" class="form-control" value="#{firstManagedBean.lastName}" a:placeholder="Last name..." />
+                        <h:inputText id="lastName"  required="true" class="form-control" value="#{firstManagedBean.lastName}" a:placeholder="Last name..." />
                     </div>
                 </div>
+                <div class="form-group" style="display: flex;">
+                    <label  class="col-sm-3 control-label"> Gender:</label>
+                    <div class="col-sm-8">
+
+                        <h:selectOneRadio class="btn-group-justified" value="#{firstManagedBean.gender}" >
+                            <f:selectItems value="#{firstManagedBean.genderList}"/>	
+                        </h:selectOneRadio>
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex;">
+                    <label  class="col-sm-3 control-label">Nationality:</label>
+                    <div class="col-sm-8">                   
+                        <h:selectOneMenu value="#{firstManagedBean.nationality}" class="form-control" >
+                            <f:selectItems value="#{firstManagedBean.nationalityList}"/>	
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex;">
+                    <label  class="col-sm-3 control-label">Course:</label>
+                    <div class="col-sm-8">
+
+                        <h:selectManyCheckbox class="btn-group-justified"  value="#{firstManagedBean.course}">
+                            <f:selectItem itemValue="Java" itemLabel="Java" />
+                            <f:selectItem itemValue="C" itemLabel="C"/>
+                            <f:selectItem itemValue="Ruby" itemLabel="Ruby"/>
+                            <f:selectItem itemValue="Php" itemLabel="Php"/>	
+                        </h:selectManyCheckbox>                        
+                    </div>
+                </div>
+                <div class="form-group" style=" display: flex;">
+                    <label for="UName" class="col-sm-3 control-label">User Name:</label>
+                    <div class="col-sm-8">
+                        <h:inputText id="UName" class="form-control" value="#{login.user}" a:placeholder="User name..." />
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex;">
+                    <label for="passU" class="col-sm-3 control-label">Password:</label>
+                    <div class="col-sm-8">
+                        <h:inputSecret id="passU" class="form-control" value="#{login.pwd}" a:placeholder="password..." />
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex;">
+                    <label for="passc" class="col-sm-3 control-label">Confirm Password:</label>
+                    <div class="col-sm-8">
+                        <h:inputSecret id="passc" class="form-control" value="#{login.pwd}" a:placeholder="password..." />
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <div class="col-sm-offset-3 col-sm-10 ">
+                        <h:commandButton class="btn btn-default btn-success" value="Register"  />	
+
+                        <h:commandButton class="btn btn-default col-sm-offset-3 btn-danger" value="Cancel"  />	
+                    </div> </div>
 
                 <div class="form-group" >
-                    <div class="col-sm-offset-3 col-sm-10">
-                        <h:commandButton class="btn btn-default" value="Submit" action="student_response" />	
-
+                    <div class="col-sm-8">
+                        #{firstManagedBean.firstName} #{firstManagedBean.lastName}	
                     </div>
                 </div>
-
             </fieldset>
         </h:form>
     </h:body>
