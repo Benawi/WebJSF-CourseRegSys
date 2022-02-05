@@ -76,6 +76,14 @@
                         <h:inputSecret id="passc" class="form-control" value="#{login.pwd}" a:placeholder="password..." />
                     </div>
                 </div>
+                 <div class="form-group" style="display: flex;">
+                    <label  class="col-sm-3 control-label">User Type</label>
+                    <div class="col-sm-8">                   
+                        <h:selectOneMenu value="#{firstManagedBean.userType}" class="form-control" >
+                            <f:selectItems value="#{firstManagedBean.userTypeList}"/>	
+                        </h:selectOneMenu>
+                    </div>
+                </div>
                 <div class="form-group" >
                     <div class="col-sm-offset-3 col-sm-10 ">
                         <h:commandButton class="btn btn-default btn-success" value="Register"  />	

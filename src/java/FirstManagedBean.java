@@ -12,6 +12,24 @@ public class FirstManagedBean {
     List<String> genderList;
     private String nationality;
     List<String> nationalityList;
+    private String userType;
+    List<String> userTypeList;
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public List<String> getUserTypeList() {
+        return userTypeList;
+    }
+
+    public void setUserTypeList(List<String> userTypeList) {
+        this.userTypeList = userTypeList;
+    }
 
     public String getNationality() {
         return nationality;
@@ -49,6 +67,7 @@ public class FirstManagedBean {
     public FirstManagedBean() {
         genderList = new ArrayList<>();
         nationalityList = new ArrayList<>();
+        userTypeList =new ArrayList<>();
         genderList.add("Male");
         genderList.add("Female");
         nationalityList.add("Ethiopia");
@@ -57,6 +76,8 @@ public class FirstManagedBean {
         nationalityList.add("Russia");
         nationalityList.add("France");
         nationalityList.add("Other");
+        userTypeList.add("Admin");
+        userTypeList.add("User");
     }
 
     public String[] getCourse() {

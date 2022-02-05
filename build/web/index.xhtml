@@ -10,9 +10,9 @@
         <ui:include src="Header.xhtml" />
         <h:form style="width: 400px; margin:0 auto; padding: 20px; margin-top: 50px; border-bottom-color:red; ">
             <h:outputLabel><h2>Hi, what's your name?</h2></h:outputLabel>
-            <h:inputText maxlength="10" required="true" value="#{greetingsBean.userName}" requiredMessage="Please enter your name."/>
+            <h:inputText class="form-control" maxlength="10" required="true" value="#{greetingsBean.userName}" requiredMessage="Please enter your name."/>
             <br/><br/>
-            <h:commandButton value="Submit" action="#{greetingsBean.greetUser}" />
+            <h:commandButton value="Submit" class="btn-success btn-default" action="#{greetingsBean.greetUser}" />
         </h:form>
     </h:body>
 </html>
