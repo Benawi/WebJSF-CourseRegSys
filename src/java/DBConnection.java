@@ -14,13 +14,13 @@ public class DBConnection {
 
     public Connection connMethod() throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
-        System.out.println("Connecting to a selected database...");
+       // System.out.println("Connecting to a selected database...");
         con = DriverManager.getConnection(DB_URL, USER, PASS);
-        if (con != null) {
-            System.out.println("Connected database successfully...");
-        } else {
-            System.out.println("nFailed to connect to Oracle DB");
-        }
+//        if (con != null) {
+//            System.out.println("Connected database successfully...");
+//        } else {
+//            System.out.println("nFailed to connect to Oracle DB");
+//        }
         return con;
     }
 }
