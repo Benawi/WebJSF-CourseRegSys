@@ -50,24 +50,26 @@
                     <label  class="col-sm-3 control-label">Course:</label>
                     <div class="col-sm-8">
 
-                        <h:selectManyCheckbox class="btn-group-justified"  value="#{firstManagedBean.course}">
+                        <h:selectManyCheckbox class="btn-group-justified" value="#{firstManagedBean.course}"   >
                             <f:selectItem itemValue="Java" itemLabel="Java" />
                             <f:selectItem itemValue="C" itemLabel="C"/>
                             <f:selectItem itemValue="Ruby" itemLabel="Ruby"/>
                             <f:selectItem itemValue="Php" itemLabel="Php"/>	
-                        </h:selectManyCheckbox>                        
+                        </h:selectManyCheckbox>    
+
+
                     </div>
                 </div>
                 <div class="form-group" style=" display: flex;">
                     <label for="UName" class="col-sm-3 control-label">User Name:</label>
                     <div class="col-sm-8">
-                        <h:inputText id="UName" class="form-control" value="#{login.user}" a:placeholder="User name..." />
+                        <h:inputText id="UName" class="form-control" value="#{firstManagedBean.user}" a:placeholder="User name..." />
                     </div>
                 </div>
                 <div class="form-group" style="display: flex;">
                     <label for="passU" class="col-sm-3 control-label">Password:</label>
                     <div class="col-sm-8">
-                        <h:inputSecret id="passU" class="form-control" value="#{login.pwd}" a:placeholder="password..." />
+                        <h:inputSecret id="passU" class="form-control" value="#{firstManagedBean.pwd}" a:placeholder="password..." />
                     </div>
                 </div>
                 <div class="form-group" style="display: flex;">
@@ -76,7 +78,7 @@
                         <h:inputSecret id="passc" class="form-control" value="#{login.pwd}" a:placeholder="password..." />
                     </div>
                 </div>
-                 <div class="form-group" style="display: flex;">
+                <div class="form-group" style="display: flex;">
                     <label  class="col-sm-3 control-label">User Type</label>
                     <div class="col-sm-8">                   
                         <h:selectOneMenu value="#{firstManagedBean.userType}" class="form-control" >
@@ -86,18 +88,30 @@
                 </div>
                 <div class="form-group" >
                     <div class="col-sm-offset-3 col-sm-10 ">
-                        <h:commandButton class="btn btn-default btn-success" value="Register"  />	
+                        <h:commandButton class="btn btn-default btn-success" value="Register" action="#{firstManagedBean.profilerInsert}" onclick="Logout()" />	
 
-                        <h:commandButton class="btn btn-default col-sm-offset-3 btn-danger" value="Cancel"  />	
+                        <h:commandButton class="btn btn-default col-sm-offset-3 btn-danger" value="Cancel" onclick="Logout()" />	
                     </div> </div>
 
-                <div class="form-group" >
-                    <div class="col-sm-8">
-                        #{firstManagedBean.firstName} #{firstManagedBean.lastName}	
-                    </div>
-                </div>
+              
             </fieldset>
         </h:form>
+
+        <SCRIPT LANGUAGE="JavaScript">
+            function Logout()
+            {
+                var response = confirm('Are you sure you?');
+                // OR var response = window.confirm('Confirm Test: Continue?');
+
+                if (response)
+                     alert("Success");
+                else
+                    alert("not inserted.");
+            }
+        </SCRIPT>
+
+
+
     </h:body>
 </html>
 

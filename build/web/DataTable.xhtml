@@ -5,40 +5,93 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Data Table</title>
+        <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap-theme.min.css" />
+        <script src="./bootstrap/js/bootstrap.min.js"></script>
     </h:head>
     <h:body>
         <ui:include src="Header.xhtml" />
-        <div style="width: 500px; margin:320px; padding:5px; margin-top: 50px;">
-        <h:dataTable id="users"
-                     columnClasses="list-column-center,
-                     list-column-right, list-column-center,
-                     list-column-right" headerClass="list-header"
-                     rowClasses="list-row"
-                     styleClass="list-background"
-                     value="#{userBean.userList}"
-                     var="col" border="1">   
-            <h:column>
-                <f:facet name="header">
-                    User ID
-                </f:facet>
-                #{col.user}
-            </h:column>
+        <div class="form-group" style="display: flex; margin-left: 550px;  margin-top: 60px;">
+            <p class="text-info ">User Profile     </p></div>
+        <div class="form-group" style="display: flex; width: 680px; margin:350px; padding:0px; margin-top:0px;">
 
-            <h:column>
-                <f:facet name="header">
-                    Password
-                </f:facet>
-                #{col.pass}
-            </h:column>
+            <h:dataTable id="users"
+                         columnClasses="list-column-center,
+                         list-column-right, list-column-center,
+                         list-column-right" headerClass="list-header"
+                         rowClasses="list-row"
+                         styleClass="list-background"
+                         value="#{registerUserBean.userList}"
+                         var="col1"  class="table-bordered table-hover table-striped table-condensed bg-info">   
+                <h:column>
+                    <f:facet name="header">
+                        First Name
+                    </f:facet>
+                    #{col1.firstName}
+                </h:column>
 
-            <h:column>
-                <f:facet name="header">
-                    User Type
-                </f:facet>
-                #{col.userType}
-            </h:column>
-        </h:dataTable>
+                <h:column>
+                    <f:facet name="header" class="text-center alert-warning">
+                        Last Name
+                    </f:facet>
+                    #{col1.lastName}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Gender
+                    </f:facet>
+                    #{col1.gender}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Nationality
+                    </f:facet>
+                    #{col1.nationality}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Course
+                    </f:facet>
+                    #{col1.course1}
+                </h:column>
+            </h:dataTable>
+
+
+
+
+            <div >
+                <h:dataTable id="users"
+                             columnClasses="list-column-center,
+                             list-column-right, list-column-center,
+                             list-column-right" headerClass="list-header"
+                             rowClasses="list-row"
+                             styleClass="list-background"
+                             value="#{userBean.userList}"
+                             var="col"  class="table-bordered table-hover table-striped table-condensed bg-info">   
+                    <h:column>
+                        <f:facet name="header">
+                            User ID
+                        </f:facet>
+                        #{col.user}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header" class="text-center alert-warning">
+                            Password
+                        </f:facet>
+                        #{col.pass}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            User Type
+                        </f:facet>
+                        #{col.userType}
+                    </h:column>
+                </h:dataTable>
+            </div>
         </div>
     </h:body>
 </html>
