@@ -105,6 +105,7 @@ public class FirstManagedBean implements Serializable {
         userTypeList = new ArrayList<>();
         genderList.add("Male");
         genderList.add("Female");
+        genderList.add("Female");
         nationalityList.add("Ethiopia");
         nationalityList.add("Ethiopia");
         nationalityList.add("USA");

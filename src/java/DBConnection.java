@@ -8,7 +8,7 @@ public class DBConnection {
     static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
 
     //  Database credentials
-    static final String USER = "java2021";
+    static final String USER = "javaDB2022";
     static final String PASS = "1616";
     Connection con = null;
 

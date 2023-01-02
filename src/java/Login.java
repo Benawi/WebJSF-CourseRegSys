@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 //import com.journaldev.jsf.util.SessionUtils;
-@ManagedBean
+@ManagedBean  
 @SessionScoped
 public class Login implements Serializable {
 
