@@ -1,5 +1,21 @@
 # WebJSF-CourseRegSys
 Create a JSF application- Course Registration System | inludes login , I'm using NetBeans IDE 8.2. 
+Create the following Table
+*****************************************************************
+CREATE TABLE  "USERTBL" 
+   (	"USERNAME" VARCHAR2(25) NOT NULL ENABLE, 
+	"PASSWORD" VARCHAR2(25) NOT NULL ENABLE, 
+	"USERTYPE" VARCHAR2(25) NOT NULL ENABLE
+   ) ;
+
+***************************************************
+CREATE TABLE  "USERPROFILE1" 
+   (	"FIRSTNAME" VARCHAR2(50), 
+	"LASTNAME" VARCHAR2(50), 
+	"GENDER" VARCHAR2(50), 
+	"NATIONALITY" VARCHAR2(50), 
+	"COURSE" VARCHAR2(50)
+   ) ;
 
 ![image](https://user-images.githubusercontent.com/21217148/210245508-07311870-a662-4f2e-ac4b-f9974f1976b3.png)
 ![image](https://user-images.githubusercontent.com/21217148/210245539-68ebfd3d-f522-433c-8cce-ff5a0be5504d.png)
